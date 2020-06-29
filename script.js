@@ -1,3 +1,4 @@
+let score = document.getElementById('score')
 let canvas = document.getElementById('snake');
 let context = canvas.getContext("2d");
 let box = 32;
@@ -6,6 +7,8 @@ snake[0] = {
     x: 8 * box,
     y: 8 * box
 }
+var pontos = 0;
+
 let direction = "right";
 let food = {
     x: Math.floor(Math.random() * 15 + 1) * box,
@@ -40,6 +43,7 @@ function update(event){
 
 function iniciarJogo(){
 
+    score.innerHTML = Number(pontos)
     if(snake[0].x > 15 * box && direction == "right") snake[0].x = 0;
     if(snake[0].x < 0  && direction == "left") snake[0].x = 16 * box;
     if(snake[0].y > 15 * box && direction == "down") snake[0].y = 0;
@@ -69,6 +73,7 @@ function iniciarJogo(){
     } else {
         food.x = Math.floor(Math.random() * 15 + 1) * box;
         food.y = Math.floor(Math.random() * 15 + 1) * box;
+        pontos++
     }
 
 
@@ -80,4 +85,5 @@ function iniciarJogo(){
     snake.unshift(newHead);
 }
 
-let jogo = setInterval(iniciarJogo, 100);
+let speed = 200;
+let jogo = setInterval(iniciarJogo, speed);
