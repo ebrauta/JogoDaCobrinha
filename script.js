@@ -3,6 +3,7 @@ let canvas = document.getElementById('snake');
 let context = canvas.getContext("2d");
 let box = 32;
 let snake = [];
+let colors = ["#000000","#FFFFFF","#E50914"] //[background, cobrinha, comida]
 snake[0] = {
     x: 8 * box,
     y: 8 * box
@@ -16,19 +17,19 @@ let food = {
 }
 
 function criarBG(){
-    context.fillStyle = "lightgreen";
+    context.fillStyle = colors[0];
     context.fillRect(0, 0, 16*box, 16*box);
 }
 
 function criarCobrinha(){
     for(i = 0; i < snake.length; i++){
-        context.fillStyle = "green";
+        context.fillStyle = colors[1];
         context.fillRect(snake[i].x, snake[i].y, box, box);
     }
 }
 
 function drawFood(){
-    context.fillStyle = "red";
+    context.fillStyle = colors[2];
     context.fillRect(food.x, food.y, box, box);
 }
 

@@ -1,4 +1,9 @@
 body{
+    margin: 0;
+    padding: 0;
+    background: #F9F9F9;
+}
+#root{
     height: 95vh;
     width: 95vw;
     display: flex;
@@ -6,7 +11,11 @@ body{
     align-items: center;
     flex-direction: column;
     color: rgb(44, 139, 44);
+    font-family: Arial, sans-serif;
 }
-h1{
+#root h1{
+    margin: 0;
+    padding-top: 10px;
     text-transform: uppercase;
+    text-decoration: underline blue;
 }
